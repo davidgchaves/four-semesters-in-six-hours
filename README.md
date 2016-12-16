@@ -120,3 +120,10 @@ Also referred to as *constant time*.
 	- the 2nd 10 items take 13s,
 	- the 3rd 10 items take 7s.
 - More on this later, with merge and quicksort.
+
+
+## 2. Recursion
+
+- Can make the code very simple for some problems.
+- Inherently carries a potentially large footprint:
+	- Every time you call the function, another call to the stack is added.
