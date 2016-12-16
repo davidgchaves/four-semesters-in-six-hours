@@ -127,3 +127,14 @@ Also referred to as *constant time*.
 - Can make the code very simple for some problems.
 - Inherently carries a potentially large footprint:
 	- Every time you call the function, another call to the stack is added.
+
+### 2.1. Factorial Solution
+
+``` js
+const factorial = n =>
+  n <= 1
+    ? n
+    : n * factorial(n - 1)
+
+factorial(10) // 3628800
+```
