@@ -173,3 +173,12 @@ const bubbleSort = xs => {
 
 bubbleSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
+
+### 3.2 Insertion Sort (`O(n²)`)
+
+- Feasible if the collection is already sorted or mostly sorted (almost `O(n)`).
+- Terrible if the collection is not sorted at all (`O(n²)`).
+- The idea here is that:
+  - The beginning of your list is sorted and the everything else is assumed to be an unsorted mess.
+  - The outer loop goes over the whole list, the index of which signifies where the "sorted" part of the list is.
+  - The inner loop goes over the sorted part of the list and inserts it into the correct position in the array.
