@@ -1,0 +1,16 @@
+{
+  "name": "four-semesters-in-six-hours",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jasmine JASMINE_CONFIG_PATH='./jasmine.json'"
+  },
+  "keywords": [],
+  "author": "David G. Chaves <davidgchaves@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "standard": "^8.6.0"
+  }
+}
