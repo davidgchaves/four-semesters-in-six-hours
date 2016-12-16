@@ -149,3 +149,27 @@ factorial(10) // 3628800
 - Bubble sort works by:
   - Comparing 2 adjacent numbers at a time and swapping them if they are out of order.
   - Rinse and repeat while a swap has happened at the last swipe.
+
+``` js
+const bubbleSort = xs => {
+  let swapped
+  let ys = xs
+
+  do {
+    swapped = false
+
+    for (let i = 0; i < xs.length; i++) {
+      if (ys[i] > ys[i + 1]) {
+        const temp = ys[i]
+        ys[i] = ys[i + 1]
+        ys[i + 1] = temp
+        swapped = true
+      }
+    }
+  } while (swapped)
+
+  return ys
+}
+
+bubbleSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```

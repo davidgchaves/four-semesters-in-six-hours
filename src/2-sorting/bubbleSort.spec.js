@@ -9,4 +9,22 @@ describe('Bubble Sort', () => {
   })
 })
 
-const bubbleSort = ns => []
+const bubbleSort = xs => {
+  let swapped
+  let ys = xs
+
+  do {
+    swapped = false
+
+    for (let i = 0; i < xs.length; i++) {
+      if (ys[i] > ys[i + 1]) {
+        const temp = ys[i]
+        ys[i] = ys[i + 1]
+        ys[i + 1] = temp
+        swapped = true
+      }
+    }
+  } while (swapped)
+
+  return ys
+}
