@@ -138,3 +138,14 @@ const factorial = n =>
 
 factorial(10) // 3628800
 ```
+
+
+## 3. Sorting
+
+### 3.1 Bubble Sort (`O(n²)`)
+
+- Easy to reason about.
+- Amongst the least efficient in terms of worst case scenario.
+- Bubble sort works by:
+  - Comparing 2 adjacent numbers at a time and swapping them if they are out of order.
+  - Rinse and repeat while a swap has happened at the last swipe.
