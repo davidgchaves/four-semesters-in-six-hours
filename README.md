@@ -153,22 +153,19 @@ factorial(10) // 3628800
 ``` js
 const bubbleSort = xs => {
   let swapped
-  let ys = xs
 
   do {
     swapped = false
 
     for (let i = 0; i < xs.length; i++) {
-      if (ys[i] > ys[i + 1]) {
-        const temp = ys[i]
-        ys[i] = ys[i + 1]
-        ys[i + 1] = temp
+      if (xs[i] > xs[i + 1]) {
+        const temp = xs[i]
+        xs[i] = xs[i + 1]
+        xs[i + 1] = temp
         swapped = true
       }
     }
   } while (swapped)
-
-  return ys
 }
 
 bubbleSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -182,3 +179,19 @@ bubbleSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   - The beginning of your list is sorted and the everything else is assumed to be an unsorted mess.
   - The outer loop goes over the whole list, the index of which signifies where the "sorted" part of the list is.
   - The inner loop goes over the sorted part of the list and inserts it into the correct position in the array.
+
+```js
+const insertionSort = xs => {
+  for (let o = 1; o < xs.length; o++) {
+    for (let i = o; i >= 0; i--) {
+      if (xs[i] < xs[i - 1]) {
+        const temp = xs[i]
+        xs[i] = xs[i - 1]
+        xs[i - 1] = temp
+      }
+    }
+  }
+}
+
+insertionSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```

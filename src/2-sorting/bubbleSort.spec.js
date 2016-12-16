@@ -5,26 +5,25 @@ describe('Bubble Sort', () => {
     const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1]
     const sortedNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    expect(bubbleSort(nums)).toEqual(sortedNums)
+    bubbleSort(nums)
+
+    expect(nums).toEqual(sortedNums)
   })
 })
 
 const bubbleSort = xs => {
   let swapped
-  let ys = xs
 
   do {
     swapped = false
 
     for (let i = 0; i < xs.length; i++) {
-      if (ys[i] > ys[i + 1]) {
-        const temp = ys[i]
-        ys[i] = ys[i + 1]
-        ys[i + 1] = temp
+      if (xs[i] > xs[i + 1]) {
+        const temp = xs[i]
+        xs[i] = xs[i + 1]
+        xs[i + 1] = temp
         swapped = true
       }
     }
   } while (swapped)
-
-  return ys
 }
