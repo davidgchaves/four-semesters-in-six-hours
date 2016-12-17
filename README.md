@@ -198,14 +198,13 @@ insertionSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 ### 3.3 Merge Sort (`O(n log n)`)
 
-- It's a *divide-and-conquer* algorithm.
-- It uses recursion.
+- It's a *divide-and-conquer* (recursive) algorithm.
 - It's stable (keeps the original order if you have equivalent elements).
 - `Array.prototype.sort` often uses MergeSort.
 - The idea here is that:
   - Recursion: You can recursively divide down your lists in two half size lists.
   - Base Case: List of one (it's already sorted, return it).
-  - On the way up the recursive calls:
+  - On the way up, the recursive calls:
     - merge those sorted lists together by inserting the smaller value first.
 
 ``` js
@@ -235,3 +234,20 @@ const stitch = (ls, rs) => {
   return ys
 }
 ```
+
+### 3.4 Quick Sort (`O(n log n)`)
+
+- It's a *divide-and-conquer* (recursive) algorithm.
+- `Array.prototype.sort` when not using MergeSort, uses some variant of QuickSort.
+- Takes up less memory than MergeSort so it is often favored.
+- The idea here is that:
+  - Recursively choose a pivot (the last element) and get:
+      - Every value smaller than the pivot, goes to the left list.
+      - Every value greater than the pivot, goes to the right list.
+  - Base Case: List of one or empty (it's already sorted, return it).
+  - On the way up, the recursive calls concat:
+    - The left list.
+    - The pivot.
+    - The right list.
+- Most QuickSort variations comes from choosing the pivot.
+- Worst Case Scenario: An already sorted list (`O(n²)`).
