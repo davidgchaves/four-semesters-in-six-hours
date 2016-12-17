@@ -251,3 +251,20 @@ const stitch = (ls, rs) => {
     - The right list.
 - Most QuickSort variations comes from choosing the pivot.
 - Worst Case Scenario: An already sorted list (`O(n²)`).
+
+``` js
+const quickSort = xs => {
+  if (xs.length <= 1) return xs
+
+  const pivot = xs.pop()
+  return [
+    ...quickSort(left(xs, pivot)),
+    pivot,
+    ...quickSort(right(xs, pivot))
+  ]
+}
+
+const left = (xs, pivot) => xs.filter(x => x <= pivot)
+const right = (xs, pivot) => xs.filter(x => x > pivot)
+
+```

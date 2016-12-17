@@ -9,4 +9,16 @@ describe('Quick Sort', () => {
   })
 })
 
-const quickSort = xs => []
+const left = (xs, pivot) => xs.filter(x => x <= pivot)
+const right = (xs, pivot) => xs.filter(x => x > pivot)
+
+const quickSort = xs => {
+  if (xs.length <= 1) return xs
+
+  const pivot = xs.pop()
+  return [
+    ...quickSort(left(xs, pivot)),
+    pivot,
+    ...quickSort(right(xs, pivot))
+  ]
+}
