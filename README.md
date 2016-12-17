@@ -195,3 +195,43 @@ const insertionSort = xs => {
 
 insertionSort([10, 5, 3, 8, 2, 6, 4, 7, 9, 1]) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
+
+### 3.3 Merge Sort (`O(n log n)`)
+
+- It's a *divide-and-conquer* algorithm.
+- It uses recursion.
+- It's stable (keeps the original order if you have equivalent elements).
+- `Array.prototype.sort` often uses MergeSort.
+- The idea here is that:
+  - Recursion: You can recursively divide down your lists in two half size lists.
+  - Base Case: List of one (it's already sorted, return it).
+  - On the way up the recursive calls:
+    - merge those sorted lists together by inserting the smaller value first.
+
+``` js
+const mergeSort = xs => {
+  if (xs.length <= 1) { return xs }
+
+  const splitPoint = xs.length / 2
+
+  return stitch(
+    mergeSort(xs.slice(0, splitPoint)),
+    mergeSort(xs.slice(splitPoint, xs.length))
+  )
+}
+
+const stitch = (ls, rs) => {
+  const ys = []
+
+  while (ls.length && rs.length) {
+    ls[0] <= rs[0]
+      ? ys.push(ls.shift())
+      : ys.push(rs.shift())
+  }
+
+  while (ls.length) { ys.push(ls.shift()) }
+  while (rs.length) { ys.push(rs.shift()) }
+
+  return ys
+}
+```
