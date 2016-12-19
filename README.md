@@ -324,3 +324,4 @@ const right = (xs, pivot) => xs.filter(x => x > pivot)
 
 - Lookups are really fast and inexpensive.
 - Insertions and Deletions can be slow and expensive (shifting/reallocation).
+- `push` and `pop` at the end (LIFO).
