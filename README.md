@@ -325,3 +325,11 @@ const right = (xs, pivot) => xs.filter(x => x > pivot)
 - Lookups are really fast and inexpensive.
 - Insertions and Deletions can be slow and expensive (shifting/reallocation).
 - `push` and `pop` at the end (LIFO).
+
+### 5.2 Linked List (Singly-Linked List)
+
+- Lookups can be really slow and expensive.
+- Deletions are cheap (no shifting):
+  -  You still need to find (`get`) the element, first.
+- There's a `head` and optionally a `tail`.
+- `push` to the `tail`, `pop` from the `tail` (LIFO).
