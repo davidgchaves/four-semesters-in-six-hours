@@ -316,3 +316,11 @@ const right = (xs, pivot) => xs.filter(x => x > pivot)
   - `pop` (from the front),
   - `peek` (`pop` without modifying the Queue).
 - Arrays implement the Queue Interface, but they are not Queues per se.
+
+
+## 5. Data Structures - Implementations
+
+### 5.1 Array List
+
+- Lookups are really fast and inexpensive.
+- Insertions and Deletions can be slow and expensive (shifting/reallocation).
