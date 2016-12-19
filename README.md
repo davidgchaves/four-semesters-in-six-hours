@@ -269,5 +269,50 @@ const quickSort = xs => {
 
 const left = (xs, pivot) => xs.filter(x => x <= pivot)
 const right = (xs, pivot) => xs.filter(x => x > pivot)
-
 ```
+
+
+## 4. Data Structures - Interfaces
+
+### 4.1 Sets
+
+- Since ES6, there's native support for Sets:
+  - [MDN Set Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+  - [MDN WeakSet Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+- No order.
+- No duplicates.
+- Useful to deduplicate a data structure (like a list or array).
+- Most common interface at least includes:
+  - [Set.Prototype.add](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add), [WeakSet.Prototype.add](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/add),
+  - [Set.Prototype.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete), [WeakSet.Prototype.delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/delete),
+  - [Set.Prototype.has](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has), [WeakSet.Prototype.has](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet/has),
+  - toList.
+
+### 4.2 Maps (AKA Dictionaries)
+
+- Since ES6, there's native support for Maps:
+  - [MDN Map Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+  - [MDN WeakMap Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+- Key-Value Stores: A Set of keys with associated values to them.
+- Since the keys are a Set, there's no duplication of keys.
+- Values are not a Set (there can be duplication).
+- Objects in JavaScript can be considered Maps too, but they are much more than Maps.
+
+### 4.3 Stacks
+
+- *"Last In, First Out"* Interface (LIFO).
+- You can only:
+  - `push` (to the top),
+  - `pop` (from the top),
+  - `peek` (`pop` without modifying the Stack).
+- Arrays implement the Stack Interface, but they are not Stacks per se.
+- Code is usually modeled as a Stack.
+
+### 4.4 Queues
+
+- *"First In, First Out"* Interface (FIFO).
+- You can only:
+  - `push` (to the back),
+  - `pop` (from the front),
+  - `peek` (`pop` without modifying the Queue).
+- Arrays implement the Queue Interface, but they are not Queues per se.
