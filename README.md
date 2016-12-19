@@ -251,6 +251,9 @@ const stitch = (ls, rs) => {
     - The right list.
 - Most QuickSort variations comes from choosing the pivot.
 - Worst Case Scenario: An already sorted list (`O(n²)`).
+- QuickSort3 uses a different technique to choose the pivot:
+  - Get the first, middle and last element of the list.
+  - Pick the one whose value is in the middle of those 3 as the pivot.
 
 ``` js
 const quickSort = xs => {
