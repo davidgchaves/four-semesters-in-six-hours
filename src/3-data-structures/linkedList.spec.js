@@ -46,6 +46,37 @@ describe('LinkedList', () => {
     expect(list.length).toEqual(26)
   })
 
+  it('pops an empty list', () => {
+    expect(list.length).toEqual(0)
+  })
+
+  it('pops a list of 1', () => {
+    list.push(4)
+    expect(list.length).toEqual(1)
+    expect(list.pop()).toEqual(4)
+  })
+
+  it('pops a list of 2', () => {
+    list.push(4)
+    list.push(6)
+    expect(list.length).toEqual(2)
+    expect(list.pop()).toEqual(6)
+    expect(list.pop()).toEqual(4)
+  })
+
+  it('pops a list of 3', () => {
+    list.push(4)
+    list.push(6)
+    list.push(8)
+    expect(list.length).toEqual(3)
+    expect(list.pop()).toEqual(8)
+    expect(list.length).toEqual(2)
+    expect(list.pop()).toEqual(6)
+    expect(list.length).toEqual(1)
+    expect(list.pop()).toEqual(4)
+    expect(list.length).toEqual(0)
+  })
+
   it('pops and returns last element', () => {
     abcRange(13).map(c => list.push(c))
     expect(list.length).toEqual(13)
@@ -91,6 +122,59 @@ class LinkedList {
   constructor () {
     this.head = null
     this.length = 0
+  }
+
+  _incrementLength () { this.length += 1 }
+  _decrementLength () { this.length -= 1 }
+
+  push (x) {
+    const node = new Node(x)
+    let cursor = this.head
+
+    if (!cursor) {
+      // Empty List: Push node
+      this.head = node
+    } else {
+      // List of 1 or more: Find tail and push node
+      while (cursor.next) { cursor = cursor.next }
+      cursor.next = node
+    }
+
+    this._incrementLength()
+  }
+
+  pop () {
+    const tailIndex = this.length - 1
+    return this.deleteAt(tailIndex)
+  }
+
+  getAt (i) {
+    if (i >= this.length || i < 0) { return 'Index Out of Bounds' }
+
+    let cursor = this.head
+    for (let j = 0; j < i; j += 1) { cursor = cursor.next }
+
+    return cursor.value
+  }
+
+  deleteAt (i) {
+    if (i >= this.length || i < 0) { return 'Index Out of Bounds' }
+
+    let cursor = this.head
+    // Delete 1st Node
+    if (i === 0) {
+      this.head = cursor.next
+      this._decrementLength()
+      return cursor.value
+    }
+
+    // Delete xth Node
+    for (let j = 1; j < i; j += 1) { cursor = cursor.next }
+
+    const nodeToDelete = cursor.next
+    cursor.next = cursor.next.next
+    this._decrementLength()
+    return nodeToDelete.value
   }
 }
 
