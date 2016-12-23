@@ -390,44 +390,44 @@ Final Tree
 
 #### Single Rotation
 
-You need to perform a single rotation when your AVL Tree looks like:
+You need to perform a single rotation to the LEFT when your AVL Tree is unbalanced to the RIGHT
 
 ```
 5 - node A
  \
-  8 - node B
+  6 - node B
    \
-    9 - node C
+    7 - node C
 ```
 
-or:
+You need to perform a single rotation to the RIGHT when your AVL Tree is unbalanced to the LEFT
 
 ```
-    9 - node A
+    7 - node A
    /
-  8 - node B
+  6 - node B
  /
 5 - node C
 ```
 
 #### Double Rotation
 
-You need to perform a double rotation when your AVL Tree looks like:
+You need to perform a double rotation to the LEFT-RIGHT when your AVL Tree is unbalanced to the RIGHT-LEFT
 
 ```
 5 - node A
  \
-  8 - node B
+  7 - node B
  /
-7 - node C
+6 - node C
 ```
 
-or:
+You need to perform a double rotation to the RIGHT-LEFT when your AVL Tree is unbalanced to the LEFT-RIGHT
 
 ```
-  8 - node A
+  7 - node A
  /
 5 - node B
  \
-  7 node C
+  6 node C
 ```
