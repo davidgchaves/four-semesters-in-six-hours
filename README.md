@@ -333,3 +333,51 @@ const right = (xs, pivot) => xs.filter(x => x > pivot)
   -  You still need to find (`get`) the element, first.
 - There's a `head` and optionally a `tail`.
 - `push` to the `tail`, `pop` from the `tail` (LIFO).
+
+### 5.3 BST (Binary Search Tree)
+
+- They can have duplicates.
+- A Node in a BST has zero, one, or two subtrees:
+  - Every element in the left subtree is lesser than the value of the Node.
+  - Every element in the right subtree is greater than the value of the Node.
+- Average case of `O(log n)` on `get`, `add`, and `delete`.
+- Worst case of `O(n)` when adding a sorted list to a BST.
+
+#### `add` example in BSTs
+
+Initial Tree
+
+```
+      8
+    /   \
+  3      10
+ / \     /
+1   6   12
+```
+
+We want to insert 5:
+
+ - Is 5 greater than 8?
+   - NO. Can we insert it to the LEFT?
+     - NO. There's already a subtree there.
+     - Move to the LEFT subtree.
+- Is 5 greater than 3?
+  - YES. Can we insert it to the RIGHT?
+     - NO. There's already a subtree there.
+     - Move to the RIGHT subtree.
+- Is 5 greater than 6?
+  - NO. Can we insert it to the LEFT?
+     - YES, it's empty!.
+DONE!
+
+Final Tree
+
+```
+      8
+    /   \
+  3      10
+ / \     /
+1   6   12
+   /
+  5
+```
