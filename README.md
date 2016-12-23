@@ -381,3 +381,53 @@ Final Tree
    /
   5
 ```
+
+### 5.4 AVL Tree
+
+- AVLs are specialized BSTs (balanced BSTs).
+- A Node out of Balance the difference between the right and left subtrees depth is `> 1`.
+- Worst case becomes `O(log n)` (it was `O(n)` for BSTs).
+
+#### Single Rotation
+
+You need to perform a single rotation when your AVL Tree looks like:
+
+```
+5 - node A
+ \
+  8 - node B
+   \
+    9 - node C
+```
+
+or:
+
+```
+    9 - node A
+   /
+  8 - node B
+ /
+5 - node C
+```
+
+#### Double Rotation
+
+You need to perform a double rotation when your AVL Tree looks like:
+
+```
+5 - node A
+ \
+  8 - node B
+ /
+7 - node C
+```
+
+or:
+
+```
+  8 - node A
+ /
+5 - node B
+ \
+  7 node C
+```
