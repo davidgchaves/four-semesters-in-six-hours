@@ -98,27 +98,28 @@ class Tree {
     this.root = null
   }
 
-  _goLeft (x, tree) {
-    !tree.left
-      ? tree.left = new Node(x)
-      : this._add(x, tree.left)
-  }
-
-  _goRight (x, tree) {
-    !tree.right
-      ? tree.right = new Node(x)
-      : this._add(x, tree.right)
-  }
-
-  _add (x, tree) {
-    if (x <= tree.value) { this._goLeft(x, tree) }
-    if (x > tree.value) { this._goRight(x, tree) }
-  }
-
   add (x) {
+    const _add = (x, tree) => {
+      const goLeft = () => {
+        !tree.left
+          ? tree.left = new Node(x)
+          : _add(x, tree.left)
+      }
+
+      const goRight = () => {
+        !tree.right
+          ? tree.right = new Node(x)
+          : _add(x, tree.right)
+      }
+
+      x <= tree.value
+        ? goLeft()
+        : goRight()
+    }
+
     !this.root
       ? this.root = new Node(x)
-      : this._add(x, this.root)
+      : _add(x, this.root)
   }
 }
 
