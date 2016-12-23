@@ -16,6 +16,46 @@
 */
 
 describe('Binary Search Tree', () => {
+  it('adds a node to an empty BST', () => {
+    const tree = new Tree()
+    tree.add(5)
+    expect(tree.root.value).toEqual(5)
+  })
+
+  it('adds a node to the LEFT in a 1-level deep BST', () => {
+    const tree = new Tree()
+    tree.add(5)
+
+    tree.add(4)
+    expect(tree.root.left.value).toEqual(4)
+  })
+
+  it('adds a duplicate nodes to the LEFT in a 1-level deep BST', () => {
+    const tree = new Tree()
+    tree.add(5)
+
+    tree.add(5)
+    expect(tree.root.left.value).toEqual(5)
+  })
+
+  it('adds a node to the RIGHT in a 1-level deep BST', () => {
+    const tree = new Tree()
+    tree.add(5)
+
+    tree.add(6)
+    expect(tree.root.right.value).toEqual(6)
+  })
+
+  it('adds a node in 2-level deep BSTs', () => {
+    const tree = new Tree()
+    tree.add(5)
+    tree.add(6)
+
+    tree.add(7)
+
+    expect(tree.root.right.right.value).toEqual(7)
+  })
+
   it('creates a correct tree', () => {
     const nums = [3, 7, 4, 6, 5, 1, 10, 2, 9, 8]
     const tree = new Tree()
@@ -58,7 +98,28 @@ class Tree {
     this.root = null
   }
 
-  add (x) {}
+  _goLeft (x, tree) {
+    !tree.left
+      ? tree.left = new Node(x)
+      : this._add(x, tree.left)
+  }
+
+  _goRight (x, tree) {
+    !tree.right
+      ? tree.right = new Node(x)
+      : this._add(x, tree.right)
+  }
+
+  _add (x, tree) {
+    if (x <= tree.value) { this._goLeft(x, tree) }
+    if (x > tree.value) { this._goRight(x, tree) }
+  }
+
+  add (x) {
+    !this.root
+      ? this.root = new Node(x)
+      : this._add(x, this.root)
+  }
 }
 
 class Node {
