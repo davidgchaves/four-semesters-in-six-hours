@@ -459,3 +459,18 @@ myMap(
 ```
 
 ### 6.2 reduce
+
+``` js
+const myReduce = (f, seed, xs) => {
+  let acc = seed
+  for (let i = 0; i < xs.length; i += 1) { acc = f(acc, xs[i]) }
+  return acc
+}
+
+myReduce(
+  (acc, x) => acc * x,
+  1,
+  [2, 3, 4]
+)
+// 24
+```

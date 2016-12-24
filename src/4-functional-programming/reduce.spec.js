@@ -23,7 +23,7 @@
     myReduce implement your own reduce.
     myReduce:
       - takes in a function to apply the reduction
-      - taked in a seed value to start the reduce
+      - takes in a seed value to start the reduce
       - takes in the list being operated on
 
 */
@@ -55,7 +55,40 @@ describe('reduce', () => {
   })
 })
 
-const addTogether = (xs) => {}
-const concatenateStringsWithSpaces = (xs) => {}
-const squaresAndSubtracts = (xs) => {}
-const myReduce = (f, seed, xs) => {}
+/*
+  addTogether:
+    - takes in a list
+    - returns the result of that list added together
+*/
+const addTogether = (xs) =>
+  xs.reduce((acc, x) => acc + x)
+
+/*
+  concatenateStringsWithSpaces:
+    - takes in a list
+    - returns that string with those strings concatenated together with spaces between them
+*/
+const concatenateStringsWithSpaces = (xs) =>
+  xs.reduce((acc, x) => acc.concat(x, ' '), '')
+
+/*
+  squaresAndSubtracts:
+    - map over your list, square each value,
+    - then subtract them in order (take index 0, subtract index 1, then index 2, etc.)
+*/
+const squaresAndSubtracts = (xs) =>
+  xs
+    .map(x => x * x)
+    .reduce((acc, x) => acc - x)
+
+/*
+  myReduce:
+    - takes in a function to apply the reduction
+    - takes in a seed value to start the reduce
+    - takes in the list being operated on
+*/
+const myReduce = (f, seed, xs) => {
+  let acc = seed
+  for (let i = 0; i < xs.length; i += 1) { acc = f(acc, xs[i]) }
+  return acc
+}
