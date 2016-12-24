@@ -476,3 +476,19 @@ myReduce(
 ```
 
 ### 6.3 filter
+
+``` js
+const myFilter = (p, xs) => {
+  let ys = []
+  for (let i = 0; i < xs.length; i += 1) {
+    if (p(xs[i])) { ys.push(xs[i]) }
+  }
+  return ys
+}
+
+myFilter(
+  n => n % 2 === 0,
+  [1, 2, 3, 4, 5, 6]
+)
+// [2, 4, 6]
+```

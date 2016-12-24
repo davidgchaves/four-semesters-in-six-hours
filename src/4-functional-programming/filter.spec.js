@@ -11,17 +11,15 @@
 
   Test 2
     filterState:
-      - takes a list of people objects that have a name and state (as in state where they're from)
       - takes a string of the state which you want to filter for
+      - takes a list of people objects that have a name and state (as in state where they're from)
       - returns a list of people objects (in the same order) from the state specified
 
   Test 3
     showOutOfCADevs
       - takes a list of people objects (same from test 3)
       - filters out people from CA,
-      - pulls out the name strings,
-      - throws away the rest of the object,
-      - uppercases the name of the person,
+      - pulls out the name and uppercases it,
       - reduces the list down to one string, the names separated by (", ")
       - returns a string of uppercase names, separated by a comma and a space.
 
@@ -65,8 +63,8 @@ describe('filter', () => {
       {name: 'Matt Zabriskie', state: 'UT'}
     ]
 
-    expect(filterState(people, 'CA')).toEqual(outputForCA)
-    expect(filterState(people, 'UT')).toEqual(outputForUT)
+    expect(filterState('CA', people)).toEqual(outputForCA)
+    expect(filterState('UT', people)).toEqual(outputForUT)
   })
 
   it('showOutOfCADevs', () => {
@@ -84,7 +82,42 @@ describe('filter', () => {
   })
 })
 
-const filterOutOdds = () => {}
-const filterState = () => {}
-const showOutOfCADevs = () => {}
-const myFilter = (p, xs) => {}
+/*
+  filterOutOdds:
+    - takes a list of numbers
+    - returns a list with only the even numbers remaining
+*/
+const filterOutOdds = ns => ns.filter(n => n % 2 === 0)
+
+/*
+  filterState:
+    - takes a string of the state which you want to filter for
+    - takes a list of people objects that have a name and state (as in state where they're from)
+    - returns a list of people objects (in the same order) from the state specified
+*/
+const filterState = (state, ps) => ps.filter(p => p.state === state)
+
+/*
+  showOutOfCADevs
+    - takes a list of people objects
+    - returns a string of non-CA uppercase names, separated by a comma and a space.
+*/
+const showOutOfCADevs = ps =>
+  ps
+    .filter(p => p.state !== 'CA')
+    .map(p => p.name.toUpperCase())
+    .reduce((acc, s) => `${acc}, ${s}`)
+
+/*
+  myFilter:
+    - takes in a predicate function (true if the item stays , or false if it goes away)
+    - takes in a list that will be filtered
+    - returns a list that has been filtered
+*/
+const myFilter = (p, xs) => {
+  let ys = []
+  for (let i = 0; i < xs.length; i += 1) {
+    if (p(xs[i])) { ys.push(xs[i]) }
+  }
+  return ys
+}
