@@ -443,3 +443,17 @@ You need to perform a double rotation to the RIGHT-LEFT when your AVL Tree is un
 - Focus on transforming lists of data: Describe *what* (declarative) instead of *how* (imperative).
 
 ### 6.1 map
+
+``` js
+const myMap = (f, xs) => {
+  const ys = []
+  for (let i = 0; i < xs.length; i += 1) { ys[i] = f(xs[i]) }
+  return ys
+}
+
+myMap(
+  x => x * 2,
+  [1, 2, 3, 4]
+)
+// [1, 4, 9, 16]
+```

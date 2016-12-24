@@ -65,7 +65,35 @@ describe('map tests', () => {
   })
 })
 
-const doubleEach = () => {}
-const squareEach = () => {}
-const doubleAndSquareEach = () => {}
-const myMap = (f, xs) => {}
+/*
+  doubleEach:
+    - takes in an array
+    - returns an array where every element in the array is doubled
+*/
+const doubleEach = (xs) => xs.map(x => x * 2)
+
+/*
+  squareEach:
+    - takes in an array
+    - returns an array where every element in the array is squared
+*/
+const squareEach = (xs) => xs.map(x => x * x)
+
+/*
+  doubleAndSquareEach:
+    - takes in an array
+    - returns an array where each element is doubled first and then squared
+*/
+const doubleAndSquareEach = (xs) => squareEach(doubleEach(xs))
+
+/*
+  myMap:
+    - takes in the function being called on each element
+    - takes in the array being mapped over
+    - returns the resulting array of calling the inputted function on each value in the array
+*/
+const myMap = (f, xs) => {
+  const ys = []
+  for (let i = 0; i < xs.length; i += 1) { ys[i] = f(xs[i]) }
+  return ys
+}
