@@ -431,3 +431,15 @@ You need to perform a double rotation to the RIGHT-LEFT when your AVL Tree is un
  \
   6 node C
 ```
+
+
+## 6. Functional Programming 101
+
+- Avoid side-effects.
+- Pure function:
+  - Idempotent: Given the same Input, produce the same Output.
+  - Side-effect free: No external state modification.
+- Higher Order functions: Pass and/or return functions to/from other functions.
+- Focus on transforming lists of data: Describe *what* (declarative) instead of *how* (imperative).
+
+### 6.1 map
